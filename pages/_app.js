@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { NavBar } from '../components/NavBar'
+import { Header } from '../components/Header'
 import { useState, useEffect } from 'react'
 import { supabase } from '../api'
 import '../styles/globals.css'
@@ -21,21 +23,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
       <div>
-        <nav className="p-6 border-b border-gray-300 space-x-6">
-          <Link href="/">
-            Home
-          </Link>
-          {
-            user && (
-                <Link href="/create-post">
-                  Create a post
-                </Link>
-            )
-          }
-          <Link href="/profile">
-            Profile
-          </Link>
-        </nav>
+        <NavBar user={user}/>
         <div className="py-8 px-16">
           <Component {...pageProps} />
         </div>
